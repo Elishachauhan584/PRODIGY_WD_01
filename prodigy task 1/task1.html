@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            line-height: 1.6;
+            color: rgb(24, 23, 23);
+            background-color: rgb(165, 153, 182);
+            transition: background-color 0.5s ease; /* Smooth transition for background color */
+        }
+        nav {
+            background-color: #121111;
+            color: white;
+            position: fixed; /* Changed to fixed for sticky navbar */
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            list-style: none; /* Added this to remove bullet points */
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Corrected font size property */
+            transition: color 0.3s ease; /* Fixed typo */
+            display: block;
+            padding: 14px 20px;
+        }
+        nav ul li a:hover {
+            color: rgb(227, 225, 230);
+        }
+        header {
+            padding: 250px 20px; /* Added padding to prevent overflow */
+            text-align: center;
+            background-color: rgb(236, 211, 211);
+            color: rgb(218, 106, 106);
+            margin-top: 50px; /* Adjusted to prevent content overlap */
+        }
+        header h1 {
+            font-size: 50px; /* Adjusted for responsive font size */
+        }
+        header p {
+            font-size: 24px;
+        }
+        section {
+            padding: 80px 20px; /* Adjusted padding for uniformity */
+            text-align: center;
+            font-size: 1rem;
+        }
+        #about {
+            background-color: whitesmoke;
+            font-size: 1.5rem;
+        }
+        #services {
+            background-color: rgb(239, 226, 226);
+            color: black;
+            font-size: 1.5rem;
+        }
+        #contact {
+            background-color: whitesmoke;
+            color: black;
+            font-size: 1.5rem; /* Corrected font size */
+        }
+        .contact-form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form .form-group {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .contact-form textarea {
+            resize: vertical; /* Allows vertical resize only */
+            height: 150px; /* Adjusted height */
+            
+        }
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: #a70818; /* Added background color */
+            color: white; /* Added text color */
+            border: none; /* Removed default border */
+
+        }
+        .contact-form button:hover {
+            background-color: #e65c00;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0; /* Corrected typo for margin */
+            }
+            header {
+
+                padding: 100px 20px; /* Adjusted padding for mobile */
+            }
+            header h1 {
+                font-size: 30px; /* Responsive font size */
+            }
+        }
+
+        /* Add class for scrolled navbar */
+        .scrolled {
+            background-color: #7d4141 !important;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Service</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <header id="home">
+        <h1>Dreamscape Events</h1>
+        <p>"Experience the art of event management with us"</p>
+    </header>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We turn your event dreams into reality. With 5 years of experience, our expert team specializes in crafting memorable moments with flawless execution. From grand celebrations to intimate gatherings, we handle every detail with creativity and precision. Let us make your next event extraordinary—stress-free and unforgettable.</p>
+    </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>From planning and venue selection to catering and décor, we handle every detail to make your event unforgettable. Let us turn your vision into a seamless and extraordinary experience.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <script>
+        // Change navbar background color on scroll
+        window.addEventListener('scroll', function () {
+            var navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Change background color of body based on scroll position
+        window.addEventListener('scroll', function () {
+            const scrollPosition = window.scrollY;
+            const body = document.body;
+
+            // Changing background color based on scroll position
+            if (scrollPosition < 500) {
+                body.style.backgroundColor = "rgb(227, 225, 230)"; // Default color
+            } else if (scrollPosition >= 500 && scrollPosition < 1000) {
+                body.style.backgroundColor = "#ffe4e1"; // Light pink
+            } else if (scrollPosition >= 1000 && scrollPosition < 1500) {
+                body.style.backgroundColor = "#e6e6fa"; // Lavender
+            } else {
+                body.style.backgroundColor = "#fffacd"; // Lemon chiffon
+            }
+        });
+    </script>
+</body>
+</html>
